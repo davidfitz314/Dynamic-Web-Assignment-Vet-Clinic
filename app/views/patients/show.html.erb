@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet name:</strong>
+  <%= @patient.pet_name %>
+</p>
+
+<p>
+  <strong>Pet type:</strong>
+  <%= @patient.pet_type %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @patient.notes %>
+</p>
+
+<p>
+  <strong>Date in:</strong>
+  <%= @patient.date_in %>
+</p>
+
+<p>
+  <strong>Date out:</strong>
+  <%= @patient.date_out %>
+</p>
+
+<p>
+  <strong>Healthy:</strong>
+  <%= @patient.healthy %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= link_to @patient.doctor.name, doctor_path(@patient.doctor) if @patient.doctor %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @patient.patient_picture %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

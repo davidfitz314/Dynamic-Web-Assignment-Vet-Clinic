@@ -1,0 +1,49 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pet_name %><br>
+    <%= f.text_field :pet_name %>
+  </div>
+  <div class="field">
+    <%= f.label :pet_type %><br>
+    <%= f.text_field :pet_type %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :date_in %><br>
+    <%= f.date_select :date_in %>
+  </div>
+  <div class="field">
+    <%= f.label :date_out %><br>
+    <%= f.date_select :date_out %>
+  </div>
+  <div class="field">
+    <%= f.label :healthy %><br>
+    <%= f.check_box :healthy %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor_id %><br>
+    <%= f.collection_select :doctor_id, Doctor.all, :id, :name, include_blank:true %>
+  </div>
+  <div class="field">
+    <%= f.label :pic %><br>
+    <%= f.text_field :patient_picture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
